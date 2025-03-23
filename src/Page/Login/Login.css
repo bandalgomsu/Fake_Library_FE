@@ -1,0 +1,164 @@
+/* body .dark-mode {
+    background: #1b1b1b !important;
+    transition: background 0.3s ease-in-out;
+} */
+
+/* 🌞 ✅ 라이트 모드 body 배경 */
+body .light-mode {
+    background: #fffaf0 !important;
+    transition: background 0.3s ease-in-out;
+}
+/* 🌙 다크 모드 로그인 페이지 */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: #1b1b1b;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(255, 204, 102, 0.2);
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #ffcc66;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+    width: 100%;
+    /* ✅ 부모 컨테이너와 크기 맞춤 */
+}
+
+.input-group label {
+    display: block;
+    color: #ffcc66;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    /* ✅ 버튼과 같은 크기로 설정 */
+    padding: 10px;
+    border: 1px solid #ffcc66;
+    border-radius: 5px;
+    background: #292929;
+    color: #ffffff;
+    font-size: 1em;
+    box-sizing: border-box;
+    /* ✅ border와 padding 포함하여 크기 유지 */
+}
+
+.input-group input::placeholder {
+    color: #cccccc;
+}
+
+.input-group input:focus {
+    border-color: #ffaa33;
+    outline: none;
+}
+
+/* ✅ 로그인 버튼 */
+.login-btn {
+    width: 100%;
+    /* ✅ 입력 필드와 동일한 너비 */
+    padding: 10px;
+    background: #ffcc66;
+    border: none;
+    border-radius: 5px;
+    color: #292929;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-sizing: border-box;
+}
+
+.login-btn:hover {
+    background: #ffaa33;
+}
+
+/* ✅ 회원가입 버튼 */
+.signup-btn {
+    width: 100%;
+    /* ✅ 입력 필드와 동일한 너비 */
+    padding: 10px;
+    background: transparent;
+    border: 2px solid #ffcc66;
+    border-radius: 5px;
+    color: #ffcc66;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.signup-btn:hover {
+    background: #ffcc66;
+    color: #292929;
+}
+
+/* 🌞 라이트 모드 스타일 */
+.App:not(.dark-mode) .login-container {
+    background: #fffaf0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.App:not(.dark-mode) .login-container h2 {
+    color: #4a2d00;
+}
+
+.App:not(.dark-mode) .input-group label {
+    color: #4a2d00;
+}
+
+.App:not(.dark-mode) .input-group input {
+    background: #f2e6d9;
+    color: #333333;
+}
+
+.App:not(.dark-mode) .login-btn {
+    background: #e76f51;
+    color: #fff;
+}
+
+.App:not(.dark-mode) .login-btn:hover {
+    background: #d9534f;
+}
+
+.App:not(.dark-mode) .signup-btn {
+    border-color: #e76f51;
+    color: #e76f51;
+}
+
+.App:not(.dark-mode) .signup-btn:hover {
+    background: #e76f51;
+    color: #fff;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    /* 스피너 색상 */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 100px auto;
+    /* 가운데 정렬 */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

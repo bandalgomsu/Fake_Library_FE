@@ -1,0 +1,115 @@
+/* ✅ 전체 페이지를 감싸는 컨테이너 (가운데 정렬) */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 600px;
+    /* ✅ 기존보다 좌우로 확장 */
+    margin: 0 auto;
+    /* ✅ 중앙 정렬 유지 */
+}
+
+/* ✅ 회원가입 박스 (가로 크기 조정) */
+.signup-box {
+    width: 500px;
+    /* ✅ 기존 400px → 500px로 확장 */
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+/* ✅ 입력 필드 & 버튼 나란히 배치 */
+.input-flex {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+/* ✅ 모든 입력 필드 크기 통일 */
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    /* ✅ 기존 12px → 14px로 살짝 키움 */
+    border: 1px solid #ffcc66;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* ✅ 다크 모드 스타일 */
+.dark-mode .signup-box {
+    background: #1b1b1b;
+    box-shadow: 0 5px 15px rgba(255, 204, 102, 0.2);
+    color: #ffffff;
+}
+
+.dark-mode .input-group input {
+    background: #292929;
+    color: #ffffff;
+    border: 1px solid #ffcc66;
+}
+
+.dark-mode .input-group input::placeholder {
+    color: #cccccc;
+}
+
+/* ✅ 라이트 모드 스타일 */
+.light-mode .signup-box {
+    background: #fffaf0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: #333333;
+}
+
+.light-mode .input-group input {
+    background: #f2e6d9;
+    color: #333333;
+    border: 1px solid #4a2d00;
+}
+
+.light-mode .input-group input::placeholder {
+    color: #666666;
+}
+
+/* ✅ 버튼 스타일 */
+.verify-btn,
+.check-btn,
+.signup-btn {
+    padding: 14px;
+    /* ✅ 버튼 크기도 입력 필드와 동일하게 키움 */
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ✅ 비활성화된 회원가입 버튼 스타일 */
+.signup-btn:disabled {
+    background: #999;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    /* 스피너 색상 */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 100px auto;
+    /* 가운데 정렬 */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

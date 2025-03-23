@@ -1,0 +1,121 @@
+/* 🌙 다크 모드 - 책 목록 스타일 */
+.new-books-title {
+  text-align: center;
+  font-size: 1.8em;
+  color: #ffcc66;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 15px;
+  /* 화면 전체 높이 설정 */
+}
+
+.book {
+  background: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  width: 550px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.book:hover {
+  transform: scale(1.05);
+  background: #3d3d3d;
+}
+
+.book h2 {
+  font-size: 1.5em;
+  color: #ffcc66;
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: 1em;
+  color: #ffdd95;
+  margin-bottom: 10px;
+}
+
+.info strong {
+  font-size: 1em;
+  color: #ffdd95;
+  margin-bottom: 10px;
+}
+
+.book p {
+  font-size: 0.9em;
+  color: #e0e0e0;
+  line-height: 1.5;
+}
+
+/* 📌 푸터 스타일 */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  background: #222;
+  color: #bbb;
+  font-size: 0.9em;
+}
+
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+  /* display: flex; */
+  flex-wrap: wrap;
+  
+}
+
+.pagination button {
+  background-color: #ffcc66;
+  border: 1px solid #ffaa33;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.pagination button.active {
+  background-color: #ffaa33;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #ff9933;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  /* 스피너 색상 */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 100px auto;
+  /* 가운데 정렬 */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
