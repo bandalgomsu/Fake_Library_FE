@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, Link , useNavigate, useLocation } from 'react-router-dom';
 import './NewBooks.css';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export function NewBooks({ darkMode }) {
+  const location = useLocation();
+  const initialPage = location.state?.returnPage || 1;
+
   const [books, setBooks] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(initialPage);
   const [totalPages, setTotalPages] = useState(0);
   const booksPerPage = 10;
   const pagesPerGroup = 10;
@@ -16,7 +19,7 @@ export function NewBooks({ darkMode }) {
   const fetchBooks = async (page) => {
     try {
       setLoading(true);
-      const res = await axios.get(`${API_BASE_URL}}/api/v1/newBooks?page=${page}&size=${booksPerPage}`);
+      const res = await axios.get(`${API_BASE_URL}/api/v1/books/newBooks?page=${page}&size=${booksPerPage}`);
       const data = res.data;
       setBooks(data.bookInfos);
       setTotalPages(data.totalPages);
@@ -30,7 +33,7 @@ export function NewBooks({ darkMode }) {
  useEffect(() => {
       fetchBooks(currentPage);
  }, [currentPage]);
-
+ 
   const currentBooks = books;
 
   // 페이지네이션 버튼 핸들러
@@ -49,20 +52,20 @@ export function NewBooks({ darkMode }) {
     setContainerHeight(calculatedHeight); // 동적으로 높이 설정
   }, [currentBooks]); // currentBooks가 바뀔 때마다 높이 재계산
 
-  if (loading) {
-    return <div className="spinner" />;
+    if (loading) {
+  return <div className="spinner" />;
   }  
 
   return (
     <div>
-      <h2 className="new-books-title">📖 전체 도서 📖</h2>
+      <h2 className="new-books-title">📖 신작 도서 📖</h2>
       <div className="container" style={{ height: containerHeight }}>
         {currentBooks.map(book => (
           <div key={book.bookId} className="book">
             <h2>{book.title}</h2>
             <p className="info"><strong>작가:</strong> {book.author} / <strong>장르:</strong> {book.genres.join(', ')} </p>
             <p>{book.plot}</p>
-            <Link to={"/bookDetail"} state={{ bookId: book.bookId , author : book.author , genres :book.genres.join(', ') }} className="detail-link">🔍 상세 보기</Link>
+            <Link to={"/bookDetail"} state={{ bookId: book.bookId , author : book.author , genres : book.genres.join(', ') , returnPage :  currentPage , returnUri : "/books" }} className="detail-link">🔍 상세 보기</Link>
           </div>
         ))}
       </div>

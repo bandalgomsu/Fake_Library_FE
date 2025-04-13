@@ -10,6 +10,9 @@ export function BookDetail() {
   const { bookId } = location.state; // URL에서 책 ID 가져오기
   const { genres } = location.state
   const { author } = location.state
+  const { returnPage } = location.state
+  const { returnUri } = location.state
+  
   const navigate = useNavigate();
 
   const [book, setBook] = useState();
@@ -56,7 +59,7 @@ export function BookDetail() {
         <h3>📖 책 내용</h3>
         <p>{book.content}</p>
       </div>
-      <button onClick={() => navigate(-1)} className="back-button">⬅ 뒤로 가기</button>
+      <button onClick={() => navigate( returnUri ,{ state: { returnPage } })} className="back-button">⬅ 뒤로 가기</button>
     </div>
   );
 }

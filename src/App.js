@@ -18,7 +18,7 @@ function App() {
                   <Route path="/new" element={<NewBooks darkMode={darkMode} />} />
                   <Route path="/login" element={<Login darkMode={darkMode} />} />
                   <Route path="/signUp" element={<Signup darkMode={darkMode} />} />
-                  <Route path="/" element={<PopularBooks darkMode={darkMode} />} />
+                  <Route path="/" element={<Books darkMode={darkMode} />} />
                   <Route path="/books" element={<Books darkMode={darkMode} />} />
                   <Route path="/bookDetail" element={<BookDetail />} />
         </Routes>

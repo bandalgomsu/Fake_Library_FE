@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, Link , useNavigate, useLocation } from 'react-router-dom';
 import './Books.css';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export function Books({ darkMode }) {
+  const location = useLocation();
+  const initialPage = location.state?.returnPage || 1;
+
   const [books, setBooks] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(initialPage);
   const [totalPages, setTotalPages] = useState(0);
   const booksPerPage = 10;
   const pagesPerGroup = 10;
@@ -62,7 +65,7 @@ export function Books({ darkMode }) {
             <h2>{book.title}</h2>
             <p className="info"><strong>작가:</strong> {book.author} / <strong>장르:</strong> {book.genres.join(', ')} </p>
             <p>{book.plot}</p>
-            <Link to={"/bookDetail"} state={{ bookId: book.bookId , author : book.author , genres :book.genres.join(', ') }} className="detail-link">🔍 상세 보기</Link>
+            <Link to={"/bookDetail"} state={{ bookId: book.bookId , author : book.author , genres : book.genres.join(', ') , returnPage :  currentPage , returnUri : "/books" }} className="detail-link">🔍 상세 보기</Link>
           </div>
         ))}
       </div>
